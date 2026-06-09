@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="BD/BD.csproj" Id="3f0dec1c-9826-4d5d-a9fe-992c6dc4393c" />
+  <Project Path="Cromos/Cromos.Client/Cromos.Client.csproj" />
+  <Project Path="Cromos/Cromos/Cromos.csproj" />
+  <Project Path="Repositorio/Repositorio.csproj" Id="6b6f250b-359e-44e5-8769-116d75cc2b6f" />
+  <Project Path="Servicio/Servicio.csproj" Id="ddc4f536-e2f4-45bf-bfd5-a4940cabc690" />
+  <Project Path="Shared/Shared.csproj" Id="ba9ebb8b-979a-4ce6-86f1-b3d9e9536ac5" />
+</Solution>

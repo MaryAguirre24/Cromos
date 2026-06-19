@@ -1,6 +1,6 @@
 using Cromos.Components.Account.Pages;
 using Cromos.Components.Account.Pages.Manage;
-using Cromos.Data;
+using BD.Data;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;

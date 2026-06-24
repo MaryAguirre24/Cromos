@@ -1,0 +1,122 @@
+﻿@page "/listaclientes"
+@inject IHttpServicio Http
+@inject NavigationManager Navigation
+
+
+<PageTitle>Clientes - Cromos</PageTitle>
+
+
+<div class="clientes-container">
+
+    <div>
+        <h2 class="titulo-clientes">
+            Lista de Clientes
+        </h2>
+
+        <p class="subtitulo-seccion">
+            Gestión de clientes registrados
+        </p>
+    </div>
+    <article class="container-custom shadow-lg">
+        <table class="tabla-clientes">
+            <thead>
+                <tr>
+                    <th>NombreCompleto</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Estado</th>
+                    <th>Deuda</th>
+                    <th>F.Registro</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (clientes == null)
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            Cargando clientes...
+                        </td>
+                    </tr>
+                }
+                else if (!clientes.Any())
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            No hay clientes registrados
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var cliente in clientes)
+                    {
+                        <tr>
+                            <td>@cliente.NombreCompleto</td>
+                            <td>@cliente.Telefono</td>
+                            <td>
+                                <span class="@(cliente.Estado
+                                               ? "estado-activo"
+                                               : "estado-inactivo")">
+                                    @(cliente.Estado
+                                        ? "Activo"
+                                        : "Inactivo")
+                                </span>
+                            </td>
+                            <td>
+                                <span class="@(cliente.Deuda > 0
+                                                ? "deuda-roja"
+                                                : "deuda-verde")">
+                                    $@cliente.Deuda.ToString("N2")
+                                </span>
+                            </td>
+                            <td>
+                                @cliente.FechaRegistro.ToString("dd/MM/yyyy")
+                            </td>
+                            <td>
+
+                                <a class="btn-icono"
+                                   href="@($"/clientes/{cliente.Id}")">
+                                    <i class="bi bi-eye-fill"></i>
+                                </a>
+                                <a class="btn-icono"
+                                   href="@($"/clientes/editar/{cliente.Id}")">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </article>
+</div>
+
+
+@code {
+    private List<VerClienteDTO>? clientes;
+    string Mensaje="";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        await CargarClientes();
+    }
+
+    private async Task CargarClientes()
+    {
+        var resp = await Http.Get<List<VerClienteDTO>>("api/Clientes/listaClientes");
+        if (!resp.Error)
+        {
+            clientes = resp.Respuesta;
+        }
+        else
+        {
+            Mensaje = resp.ObtenerError();
+        } 
+    }
+}
+
+
+

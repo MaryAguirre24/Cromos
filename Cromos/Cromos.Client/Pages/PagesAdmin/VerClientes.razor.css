@@ -1,0 +1,84 @@
+﻿.clientes-container {
+    background-color: #ececec;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.titulo-clientes {
+    background-color: #1e88e5;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 15px 25px;
+    margin-bottom: 25px;
+    width: fit-content;
+    min-width: 450px;
+}
+
+.tabla-clientes {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .tabla-clientes thead {
+        background-color: #e7c44d;
+    }
+
+    .tabla-clientes th {
+        text-align: center;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: black;
+    }
+
+    .tabla-clientes tbody tr {
+        background-color: #5ca3e6;
+        border-bottom: 2px solid #4f95d4;
+    }
+
+    .tabla-clientes td {
+        text-align: center;
+        padding: 12px;
+        color: black;
+        font-weight: 500;
+    }
+
+.estado-activo {
+    background: #22c55e;
+    color: black;
+    padding: 5px 18px;
+    font-weight: bold;
+}
+
+.estado-inactivo {
+    background: #ef4444;
+    color: white;
+    padding: 5px 18px;
+    font-weight: bold;
+}
+
+.deuda-verde {
+    background: #22c55e;
+    color: black;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.deuda-roja {
+    background: #ef4444;
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.btn-icono {
+    color: #555;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+    .btn-icono:hover {
+        color: #555;
+    }

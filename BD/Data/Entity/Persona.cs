@@ -13,7 +13,7 @@ namespace BD.Data.Entity
         [Required(ErrorMessage = "El apellido es obligatorio")]
         [MaxLength(50, ErrorMessage = "El apellidono puede exceder los {1} caracteres")]
         public string Apellido { get; set; }
-        public int? Telefono { get; set; }
+        public string Telefono { get; set; }
     }
 }
 

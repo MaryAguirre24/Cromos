@@ -18,6 +18,8 @@ namespace BD.Data.Entity
         public int? CobroId { get; set; }
         [ForeignKey(nameof(CobroId))]
         public Cobro? Cobro { get; set; }
+        public int TipoCobroId { get; set; }
+
         [Required(ErrorMessage = "El monto es obligatorio")]
         public decimal Monto { get; set; }
         [MaxLength(256, ErrorMessage = "Las observaciones no pueden exceder los {1} caracteres")]
